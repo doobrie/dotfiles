@@ -1,0 +1,15 @@
+{
+  "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign": "✖",
+  "diagnostic.warningSign": "⚠",
+  "diagnostic.infoSign": "●",
+  "diagnostic.hintSign": "○",
+  "coc.preferences.formatOnSaveFiletypes": ["python", "json"],
+  "languageserver": {
+    "python": {
+      "command": "pyright",
+      "trace.server": "verbose",
+      "filetypes": ["py"]
+    }
+  }
+}

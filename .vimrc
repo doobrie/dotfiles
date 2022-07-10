@@ -1,3 +1,4 @@
+" VIM SETTINGS
 call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

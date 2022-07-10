@@ -9,6 +9,7 @@ Plug 'bling/vim-bufferline'
 Plug 'preservim/nerdtree'
 Plug 'rbtnn/vim-mru'
 Plug 'yaegassy/coc-pydocstring', {'do': 'yarn install --frozen-lockfile'}
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 
 nnoremap <SPACE> <Nop>

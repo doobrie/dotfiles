@@ -25,11 +25,6 @@ syntax on
 set background=dark
 colorscheme desert
 
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackspace() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <c-@> coc#refresh()
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)

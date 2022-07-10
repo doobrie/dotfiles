@@ -13,7 +13,7 @@ call plug#end()
 
 nnoremap <SPACE> <Nop>
 let mapleader=" "
-
+set backspace=indent,eol,start
 set encoding=utf-8
 set nobackup
 set nowritebackup

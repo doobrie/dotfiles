@@ -33,3 +33,4 @@ Clone the repo to `~/Code/dotfiles` and create symbolic links as below
 * Ctrl-B Toggle Nerd Tree
 * Ctrl-F Nerd Tree (Current File)
 * Ctrl-E Display MRU
+* F8 Show file Structure

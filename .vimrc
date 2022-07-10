@@ -10,6 +10,7 @@ Plug 'preservim/nerdtree'
 Plug 'rbtnn/vim-mru'
 Plug 'yaegassy/coc-pydocstring', {'do': 'yarn install --frozen-lockfile'}
 Plug 'airblade/vim-gitgutter'
+Plug 'preservim/tagbar'
 call plug#end()
 
 nnoremap <SPACE> <Nop>
@@ -24,8 +25,12 @@ set nu
 set relativenumber
 set noshowmode
 syntax on
+set mouse=a
+let g:tagbar_autofocus = 1
 set background=dark
 colorscheme desert
+
+nmap <F8> :TagbarToggle<CR>
 
 inoremap <silent><expr> <c-@> coc#refresh()
 nnoremap <C-a> <Plug>(coc-codeaction-line)

@@ -6,12 +6,14 @@ This is my personal dotfiles that I use to configure my system.
 
 Clone the repo to `~/Code/dotfiles` and create symbolic links as below
 
-* `ln /Users/david/Code/dotfiles/.vimrc ~/.vimrc`
-* `ln /Users/david/code/dotfiles/.vim/coc-settings.json ~/.vim/coc-settings.json`
+* `ln -s /Users/david/Code/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim`
+* `ln -s /Users/david/code/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json`
 
 ## Dependencies
 
 * yarn
+* VimPlug
+* Ctags
 
 ## Key Mappings
 

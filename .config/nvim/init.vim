@@ -3,14 +3,16 @@ call plug#begin()
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-bufferline'
 Plug 'preservim/nerdtree'
-Plug 'rbtnn/vim-mru'
 Plug 'yaegassy/coc-pydocstring', {'do': 'yarn install --frozen-lockfile'}
 Plug 'airblade/vim-gitgutter'
 Plug 'preservim/tagbar'
+Plug 'folke/tokyonight.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+
 call plug#end()
 
 nnoremap <SPACE> <Nop>
@@ -28,7 +30,7 @@ syntax on
 set mouse=a
 let g:tagbar_autofocus = 1
 set background=dark
-colorscheme desert
+colorscheme tokyonight
 
 nmap <F8> :TagbarToggle<CR>
 
@@ -61,7 +63,7 @@ nmap <leader>rn <Plug>(coc-rename)
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
-nnoremap <c-o> :Files<cr>
+nnoremap <c-o> :Telescope find_files<cr>
 
 nnoremap <F5> :buffers<CR>:buffer<Space>
 map <C-J> :bnext<CR>
@@ -72,4 +74,17 @@ nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-b> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-nnoremap <C-e> :MRU<CR>
+nnoremap <C-e> :Telescope oldfiles<CR>
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF

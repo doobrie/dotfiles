@@ -8,7 +8,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'bling/vim-bufferline'
 Plug 'preservim/nerdtree'
 Plug 'rbtnn/vim-mru'
-
+Plug 'yaegassy/coc-pydocstring', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
 
 nnoremap <SPACE> <Nop>
@@ -27,6 +27,7 @@ set background=dark
 colorscheme desert
 
 inoremap <silent><expr> <c-@> coc#refresh()
+nnoremap <C-a> <Plug>(coc-codeaction-line)
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)

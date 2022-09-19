@@ -45,6 +45,8 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
 nnoremap <C-a> <Plug>(coc-codeaction-line)
+nnoremap <A-Left> <C-o>
+nnoremap <A-Right> <C-i>
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)

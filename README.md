@@ -27,6 +27,8 @@ Clone the repo to `~/Code/dotfiles` and create symbolic links as below
 * gy Goto Type Definition
 * gi Goto Implementation
 * gr Goto references
+* ALT-Left Go backwards
+* ALT-Right Go forwards
 * K Show Documentation
 * <Leader>rn Rename
 * <Leader>f Format Selected

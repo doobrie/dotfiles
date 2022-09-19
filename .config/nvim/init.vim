@@ -14,6 +14,8 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'aurum77/live-server.nvim'
+Plug 'ap/vim-css-color'
 
 call plug#end()
 
@@ -33,10 +35,15 @@ set mouse=a
 let g:tagbar_autofocus = 1
 set background=dark
 colorscheme tokyonight
+set tabstop=2
+set shiftwidth=3
+set expandtab
 
 nmap <F8> :TagbarToggle<CR>
 
-inoremap <silent><expr> <c-@> coc#refresh()
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
 nnoremap <C-a> <Plug>(coc-codeaction-line)
 
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
@@ -90,4 +97,9 @@ EOF
 
 lua << EOF
 require("nvim-tree").setup()
+EOF
+
+lua << EOF
+require'live_server.util'.install()
+cmd={'LiveServer', 'LiveServerStart', 'LiveServerStop'}
 EOF

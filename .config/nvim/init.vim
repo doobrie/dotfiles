@@ -41,6 +41,8 @@ set expandtab
 
 nmap <F8> :TagbarToggle<CR>
 
+autocmd TermOpen * startinsert
+
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"

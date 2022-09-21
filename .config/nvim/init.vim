@@ -107,3 +107,11 @@ lua << EOF
 require'live_server.util'.install()
 cmd={'LiveServer', 'LiveServerStart', 'LiveServerStop'}
 EOF
+
+lua << EOF
+require('telescope').setup{
+   defaults = {
+      file_ignore_patterns = { "node_modules" }
+   }
+}
+EOF

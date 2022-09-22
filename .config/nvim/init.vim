@@ -12,10 +12,12 @@ Plug 'preservim/tagbar'
 Plug 'folke/tokyonight.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-file-browser.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'aurum77/live-server.nvim'
 Plug 'ap/vim-css-color'
+Plug 'uzxmx/vim-widgets'
 
 call plug#end()
 
@@ -46,6 +48,18 @@ autocmd TermOpen * startinsert
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+
 nnoremap <C-a> <Plug>(coc-codeaction-line)
 nnoremap <A-Left> <C-o>
 nnoremap <A-Right> <C-i>
@@ -86,6 +100,8 @@ nnoremap <C-b> :NvimTreeFindFileToggle<CR>
 
 nnoremap <C-e> :Telescope oldfiles<CR>
 
+highlight CocHintFloat ctermfg=Red  guifg=#ff0000
+
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   highlight = {
@@ -111,7 +127,9 @@ EOF
 lua << EOF
 require('telescope').setup{
    defaults = {
-      file_ignore_patterns = { "node_modules" }
+      file_ignore_patterns = { "node_modules", "target" }
    }
 }
+require('telescope').load_extension "file_browser"
 EOF
+

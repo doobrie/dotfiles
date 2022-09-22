@@ -4,13 +4,22 @@
   "diagnostic.warningSign": "⚠",
   "diagnostic.infoSign": "●",
   "diagnostic.hintSign": "○",
+  "codeLens.enable": true,
+  "java.referencesCodeLens.enabled": true,
+  "diagnostic.floatConfig.border": true,
+  "diagnostic.floatConfig.rounded": true,
+  "diagnostic.floatConfig.title": "Diagnostics",
+  "suggest.floatConfig.border": true,
+  "suggest.floatConfig.rounded": true,
   "coc.preferences.formatOnSaveFiletypes": [
     "python",
     "json",
     "javascriptreact",
     "javascript",
     "css",
-    "html"
+    "html",
+    "java",
+    "xml"
   ],
   "pydocstring.formatter": "google",
   "languageserver": {

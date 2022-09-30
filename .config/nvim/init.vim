@@ -18,6 +18,8 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 Plug 'aurum77/live-server.nvim'
 Plug 'ap/vim-css-color'
 Plug 'uzxmx/vim-widgets'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
 
 call plug#end()
 
@@ -133,3 +135,13 @@ require('telescope').setup{
 require('telescope').load_extension "file_browser"
 EOF
 
+lua <<EOF
+require("packer").startup(function()
+    use "lukas-reineke/indent-blankline.nvim"
+end)
+EOF
+
+lua <<EOF
+vim.opt.termguicolors = true
+require("bufferline").setup{}
+EOF

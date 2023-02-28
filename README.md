@@ -6,17 +6,30 @@ This is my personal dotfiles that I use to configure my system.
 
 Clone the repo to `~/Code/dotfiles` and create symbolic links as below
 
-* `ln -s /Users/david/Code/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim`
-* `ln -s /Users/david/code/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json`
+* `ln -s /home/david/Code/dotfiles/.config/nvim/init.vim ~/.config/nvim/init.vim`
+* `ln -s /home/david/Code/dotfiles/.config/nvim/coc-settings.json ~/.config/nvim/coc-settings.json`
+* `ln -s /home/david/Code/dotfiles/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml`
 
 ## Dependencies
 
-* neovim `brew install neovim`
-* yarn `brew install yarn`
+```
+yay zsh
+yay -Syu neovim
+yay -Syu ttf-victor-mono-nerd
+npm i -g neovim
+yay -Syu ripgrep
+yay -Syu fd
+yay -Syu xclip
+yay -Syu zsh-syntax-highlighting
+yay -Syu zsh-autosuggestions
+yay -Syu alacritty
+yay -Syu picom
+yay -Syu google-chrome
+yay -R firefox
+yay -Syu ctags
+
 * VimPlug `sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'`
-* Ctags `brew install ctags`
-* NerdFont `brew tap homebrew/cask-fonts && brew install --cask font-fira-mono-nerd-font`
 
 ## Key Mappings
 

@@ -20,9 +20,11 @@ Plug 'ap/vim-css-color'
 Plug 'uzxmx/vim-widgets'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'akinsho/bufferline.nvim', { 'tag': 'v2.*' }
+Plug 'danilo-augusto/vim-afterglow'
 
 call plug#end()
 
+let g:afterglow_italic_comments=1
 nnoremap <SPACE> <Nop>
 let mapleader=" "
 set backspace=indent,eol,start
@@ -38,18 +40,17 @@ syntax on
 set mouse=a
 let g:tagbar_autofocus = 1
 set background=dark
-colorscheme tokyonight
+colorscheme afterglow
 set tabstop=2
-set shiftwidth=3
+set shiftwidth=2
 set expandtab
+hi normal guibg=000000
 
 nmap <F8> :TagbarToggle<CR>
 
 autocmd TermOpen * startinsert
 
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
-
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! CheckBackspace() abort
@@ -61,6 +62,9 @@ inoremap <silent><expr> <Tab>
       \ coc#pum#visible() ? coc#pum#next(1) :
       \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 
 nnoremap <C-a> <Plug>(coc-codeaction-line)
 nnoremap <A-Left> <C-o>
@@ -136,9 +140,11 @@ require('telescope').load_extension "file_browser"
 EOF
 
 lua <<EOF
-require("packer").startup(function()
-    use "lukas-reineke/indent-blankline.nvim"
-end)
+require("indent_blankline").setup {
+    -- for example, context is off by default, use this to turn it on
+    show_current_context = true,
+    show_current_context_start = true,
+}
 EOF
 
 lua <<EOF
